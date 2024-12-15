@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/dark_gray"
+    android:padding="25dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/text_title_acc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            style="@style/TextSemiBold"
+            android:text="Your Account"
+            android:textSize="30sp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1" />
+        <ImageView
+            android:id="@+id/button_logout"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_logout"
+            android:contentDescription="logout"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                style="@style/TextRegular"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/name_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="fydcytfuk"
+                android:background="@color/field_color"
+                android:padding="15dp"
+                style="@style/TextRegular"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginBottom="25dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                style="@style/TextRegular"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/username_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="__________anti"
+                android:background="@color/field_color"
+                android:padding="15dp"
+                style="@style/TextRegular"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginBottom="25dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                style="@style/TextRegular"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/email_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="anti@ugm.ac.id"
+                android:background="@color/field_color"
+                android:padding="15dp"
+                style="@style/TextRegular"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginBottom="40dp"/>
+
+            <TextView
+                android:id="@+id/title_premium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Curious about Premium?"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                style="@style/TextSemiBold" />
+
+            <TextView
+                android:id="@+id/subtitle_premium"
+                style="@style/TextSemiBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="You're in luck"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/button_premium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_button"
+                android:padding="8dp"
+                android:gravity="center"
+                android:layout_marginBottom="8dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_notification"
+                    android:contentDescription="Bell Icon"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Limited time offer"
+                    android:textColor="@color/white"
+                    style="@style/TextSemiBold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="5dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/desc_premium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="You can't upgrade to Premium in the app. We know, it's not ideal"
+                android:textColor="@color/white"
+                android:textSize="9sp"
+                style="@style/TextSemiBold"
+                android:layout_marginBottom="20dp" />
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_shape"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/title_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Why join Premium?"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        style="@style/TextMedium" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/dark_gray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="5dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_disturb"
+                            android:contentDescription="Ad-free music" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ad-free movie watching"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            style="@style/TextRegular"
+                            android:layout_marginStart="12dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="5dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_download"
+                            android:contentDescription="Download offline" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Download to watch offline"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            style="@style/TextRegular"
+                            android:layout_marginStart="12dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="5dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_shuffle"
+                            android:contentDescription="Play in order" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Play movies in any order"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            style="@style/TextRegular"
+                            android:layout_marginStart="12dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="5dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_headphones"
+                            android:contentDescription="High quality audio" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="High audio quality"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            style="@style/TextRegular"
+                            android:layout_marginStart="12dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="5dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_people"
+                            android:contentDescription="Listen with friends" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Watch with friends in real time"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            style="@style/TextRegular"
+                            android:layout_marginStart="12dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="5dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_queue"
+                            android:contentDescription="Organize queue" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Organize watching queue"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            style="@style/TextRegular"
+                            android:layout_marginStart="12dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
