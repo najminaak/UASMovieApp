@@ -22,7 +22,8 @@ import retrofit2.Response
 
 class MoviesAdminAdapter(
     private val context: Context,
-    private val movieList: MutableList<Movies>
+    private val movieList: MutableList<Movies>,
+    private val onEditMovies: (Intent) -> Unit
 ) : RecyclerView.Adapter<MoviesAdminAdapter.MovieViewHolder>() {
 
     inner class MovieViewHolder(private val binding: ItemMovieAdminBinding) :

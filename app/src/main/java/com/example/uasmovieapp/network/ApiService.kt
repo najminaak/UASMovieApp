@@ -19,7 +19,8 @@ interface ApiService {
     fun addMovie(@Body rawJson: RequestBody): Call<Movies>
 
     //update
-
+    @POST("movies/{id}")
+    fun updateMovies(@Path("id") movieId: String, @Body rowJson: RequestBody): Call<Movies>
 
     //delete
     @DELETE("movies/{id}")
