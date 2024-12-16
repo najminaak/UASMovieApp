@@ -46,14 +46,14 @@ class HomeFragment : Fragment() {
         responseMovies.enqueue(object : Callback<List<Movies>> {
             override fun onResponse(call: Call<List<Movies>>, response: Response<List<Movies>>) {
                 if (response.isSuccessful) {
-                    val movieList = response.body()
-                    if (movieList != null && movieList.isNotEmpty()) {
-                        movieAdapter = MoviesAdapter(requireContext(), movieList, onAddBookmarkClicked = { movie ->
-                            saveBookmark(movie)
-                        })
-                        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-                        binding.recyclerView.adapter = movieAdapter
-                    }
+                    val movieList = response.body() ?: return
+                    movieAdapter = MoviesAdapter(requireContext(), movieList, onAddBookmarkClicked = { movie ->
+                        saveBookmark(movie)  // Save the movie in database
+                        // Update the movie list and notify the adapter
+                        movieAdapter.notifyDataSetChanged()
+                    }, mBookmarkDao)
+                    binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                    binding.recyclerView.adapter = movieAdapter
                 }
             }
 
@@ -72,7 +72,6 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    // Save bookmark to the database
     private fun saveBookmark(movie: Movies) {
         val bookmark = Bookmark(
             title = movie.title,
@@ -80,7 +79,7 @@ class HomeFragment : Fragment() {
             image_url = movie.image_url
         )
         CoroutineScope(Dispatchers.IO).launch {
-            mBookmarkDao.insert(bookmark)
+            mBookmarkDao.insert(bookmark)  // Save to database
         }
         Toast.makeText(requireContext(), "Bookmark berhasil disimpan", Toast.LENGTH_SHORT).show()
     }

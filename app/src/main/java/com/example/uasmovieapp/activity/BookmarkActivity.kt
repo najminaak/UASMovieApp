@@ -27,6 +27,10 @@ class BookmarkActivity : AppCompatActivity() {
         binding = ActivityBookmarkBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
+
         // Inisialisasi database
         val db = MovieRoomDatabase.getDatabase(this)
         mMovieDao = db!!.bookmarkDao()!!
@@ -34,22 +38,13 @@ class BookmarkActivity : AppCompatActivity() {
 
         // Panggil method untuk menampilkan data
         loadBookmarks()
-
-        //
-        val onRemoveBookmarkClicked: (Bookmark) -> Unit = { bookmark ->
-            deleteBookmark(bookmark)
-        }
-
-        val bookmarkAdapter = BookmarkAdapter(emptyList(), onRemoveBookmarkClicked)
-        binding.rvBookmarks.layoutManager = LinearLayoutManager(this)
-        binding.rvBookmarks.adapter = bookmarkAdapter
     }
 
     private fun deleteBookmark(bookmark: Bookmark) {
         CoroutineScope(Dispatchers.IO).launch {
-            mMovieDao.delete(bookmark)
+            mMovieDao.delete(bookmark)  // Hapus bookmark dari database
             withContext(Dispatchers.Main) {
-                loadBookmarks()
+                loadBookmarks()  // Refresh data setelah dihapus
             }
         }
         Toast.makeText(this, "Bookmark berhasil dihapus", Toast.LENGTH_SHORT).show()
@@ -57,13 +52,14 @@ class BookmarkActivity : AppCompatActivity() {
 
     private fun loadBookmarks() {
         mMovieDao.getAllBookmark().observe(this) { bookmarks ->
-            val bookmarkAdapter = BookmarkAdapter(bookmarks) { bookmark ->
-                deleteBookmark(bookmark)
-            }
+            // Mengonversi daftar menjadi MutableList agar bisa dimodifikasi
+            val bookmarkAdapter = BookmarkAdapter(bookmarks.toMutableList(), { bookmark ->
+                deleteBookmark(bookmark)  // Menghapus bookmark ketika di klik
+            }, mMovieDao)
+
+            // Menetapkan layout dan adapter ke RecyclerView
             binding.rvBookmarks.layoutManager = LinearLayoutManager(this)
             binding.rvBookmarks.adapter = bookmarkAdapter
         }
-
     }
 }
-
