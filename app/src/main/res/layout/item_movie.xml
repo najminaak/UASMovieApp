@@ -42,6 +42,16 @@
                 android:textColor="@android:color/darker_gray"
                 style="@style/TextMedium"/>
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivBookmark"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="25dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_bookmark_outline"
+            android:contentDescription="Bookmark" />
+
     </LinearLayout>
 
     <View

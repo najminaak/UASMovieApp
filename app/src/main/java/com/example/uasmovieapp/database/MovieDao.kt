@@ -12,14 +12,14 @@ import com.example.uasmovieapp.model.Movies
 @Dao
 interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(movies: Movies)
-
-    @Update
-    fun update(movies: Movies)
+    fun insert(bookmark: Bookmark)
 
     @Delete
-    fun delete(movies: Movies)
+    suspend fun delete(bookmark: Bookmark)
 
-    @get:Query("SELECT * from movies")
-    val allMovies: LiveData<List<Movies>>
+    @Query("SELECT * from bookmark_table")
+    fun getAllBookmark(): LiveData<List<Bookmark>>
+
+    @Query("DELETE FROM bookmark_table WHERE id = :id")
+    suspend fun deleteById(id: Int)
 }
